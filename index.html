@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+      <title>Lagis</title>
+
+      <style>
+        .row {
+          margin-top: 10px;
+        }
+
+        .col h3 {
+          font-size: medium;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+        }
+        .text-muted small {
+          font-size: 10px;
+        }
+
+        ul li p {
+          font-size: small;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+  
+        ul {
+          width: 100%;
+          padding: 0px;
+        }
+        li {
+          align-items: center;
+          line-height: 15px;
+          margin-bottom: 10px;
+        }
+
+        .text-muted small {
+          color: grey;
+        }
+
+        .row {
+          padding: 20px;
+          background-color: #f9f9f9;
+          margin-top: 0px;
+        }
+
+        #products  {
+          display: none;
+        }
+
+        #services {
+          display: none;
+        }
+
+        /* Removed display: none; to allow Bootstrap to handle dropdown visibility */
+        .dropdown-menu {
+          width: 100%;
+        }
+
+        /* Adjust navbar to prevent overlapping */
+        .navbar-nav {
+          flex-direction: row;
+        }
+
+        .main-nav {
+          flex-direction: row;
+            
+          width: 100%;
+        }
+
+        .navbar-nav.ms-auto {
+          width: auto !important;
+          justify-content: flex-end;
+        }
+
+        .navbar {
+          border-bottom: 1px solid black;
+          background-color: #ffff;
+        }
+
+        #demo.carousel,
+        #demo .carousel-inner,
+        #demo .carousel-item,
+        #demo .carousel-item img {
+          height: 400px; /* or any height you want */
+        }
+
+        #demo .carousel-item img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        /* Hero section styles */
+        .hero-heading {
+          font-size: 1.7rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          color: #111;
+        }
+        .hero-desc {
+          font-size: 1rem;
+          max-width: 600px;
+          margin-bottom: 2rem;
+          color: #222;
+        }
+        .hero-btn {
+          background: #00aaff;
+          color: #fff;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 4px;
+          font-size: 1rem;
+          font-weight: 500;
+          transition: background 0.2s;
+          text-decoration: none;
+          display: inline-block;
+        }
+        .hero-btn:hover {
+          background: #0083aa;
+          color: #fff;
+        }
+
+        /* GIS Card Overlay Styles */
+        .gis-card-col {
+          position: relative;
+          background-size: cover;
+          background-position: center;
+          height: 250px;
+          border-radius: 6px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          margin-bottom: 24px;
+        }
+        .gis-card-overlay {
+          position: absolute;
+          left: 0; right: 0; bottom: 0;
+          height: 55%;
+          background: linear-gradient(0deg, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.1) 100%);
+          width: 100%;
+          z-index: 1;
+        }
+        .gis-card-content {
+          position: absolute;
+          left: 0; bottom: 0; z-index: 2;
+          color: #fff;
+          padding: 20px 18px 14px 18px;
+          width: 100%;
+        }
+        .gis-card-title {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-bottom: 0.2rem;
+        }
+        .gis-card-desc {
+          font-size: 1rem;
+          color: #e0e0e0;
+          font-weight: 400;
+        }
+
+        .row.landing {
+          min-height: 600px; /* or any value you want */
+        }
+
+        ul.org-list {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 48px;
+          background: #fcfcfc;
+          padding: 16px 0 8px 0;
+          margin: 0;
+          list-style: none;
+        }
+        ul.org-list li {
+          position: relative;
+          font-size: 1rem;
+          font-weight: 400;
+          color: #444;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        ul.org-list li.active a,
+        ul.org-list li a:hover {
+          color: #00b6e6;
+        }
+        ul.org-list li.active a::after,
+        ul.org-list li a:hover::after {
+          content: '';
+          display: block;
+          margin: 8px auto 0 auto;
+          width: 80%;
+          height: 2px;
+          background: #00b6e6;
+          border-radius: 2px;
+        }
+        ul.org-list li a {
+          color: inherit;
+          text-decoration: none;
+          padding-bottom: 4px;
+          transition: color 0.2s;
+          position: relative;
+        }
+
+        /* Featured Story Section */
+        .featured-story-section {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+          padding: 48px 40px;
+          margin: 40px auto 0 auto;
+          max-width: 1400px;
+          display: flex;
+          align-items: center;
+          gap: 48px;
+        }
+        .featured-story-img {
+          width: 48%;
+          border-radius: 8px;
+          object-fit: cover;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .featured-story-content {
+          width: 52%;
+        }
+        .featured-story-label {
+          color: #757575;
+          font-size: 1.1rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+        }
+        .featured-story-title {
+          font-size: 2.3rem;
+          font-weight: 800;
+          margin-bottom: 18px;
+          color: #111;
+        }
+        .featured-story-desc {
+          font-size: 1.15rem;
+          color: #222;
+          margin-bottom: 28px;
+        }
+        .featured-story-btn {
+          background: #00b6e6;
+          color: #fff;
+          border: none;
+          padding: 0.7rem 1.4rem;
+          border-radius: 4px;
+          font-size: 1rem;
+          font-weight: 500;
+          transition: background 0.2s;
+          text-decoration: none;
+          display: inline-block;
+        }
+        .featured-story-btn:hover {
+          background: #0083aa;
+          color: #fff;
+        }
+        .featured-story-section[hidden] { display: none; }
+
+        /* Trending Insights Section */
+        .trending-section {
+          background: #f7f8fa;
+          padding: 60px 0 40px 0;
+        }
+        .trending-title {
+          font-size: 1.7rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 36px;
+        }
+        .trending-grid {
+          display: flex;
+          gap: 32px;
+          max-width: 1500px;
+          margin: 0 auto;
+        }
+        .trending-left {
+          flex: 2;
+          position: relative;
+          min-height: 420px;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+        .trending-right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+        .trending-card {
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          min-height: 200px;
+          display: flex;
+          align-items: flex-end;
+        }
+        .trending-img {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          object-fit: cover;
+          z-index: 0;
+        }
+        .trending-overlay {
+          position: absolute;
+          left: 0; right: 0; bottom: 0;
+          height: 60%;
+          background: linear-gradient(0deg, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.1) 100%);
+          width: 100%;
+          z-index: 1;
+        }
+        .trending-content {
+          position: relative;
+          z-index: 2;
+          color: #fff;
+          padding: 24px 24px 18px 24px;
+          width: 100%;
+        }
+        .trending-label {
+          background: rgba(0,0,0,0.7);
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 700;
+          padding: 4px 14px;
+          border-radius: 3px;
+          display: inline-block;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+        .trending-headline {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+        .trending-desc {
+          font-size: 1rem;
+          color: #e0e0e0;
+        }
+
+        /* Newsworthy Section */
+        .newsworthy-section {
+          background: #181818;
+          padding: 60px 0 40px 0;
+        }
+        .newsworthy-title {
+          font-size: 2.2rem;
+          font-weight: 800;
+          text-align: center;
+          color: #fff;
+          margin-bottom: 36px;
+        }
+        .newsworthy-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 32px;
+          max-width: 1500px;
+          margin: 0 auto;
+        }
+        .newsworthy-main {
+          grid-row: 1 / 2;
+          grid-column: 1 / 2;
+          min-height: 260px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+        .newsworthy-side-top {
+          grid-row: 1 / 2;
+          grid-column: 2 / 3;
+          min-height: 120px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+        .newsworthy-side-bottom {
+          grid-row: 2 / 3;
+          grid-column: 2 / 3;
+          min-height: 120px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+        .newsworthy-bottom-left {
+          grid-row: 2 / 3;
+          grid-column: 1 / 2;
+          min-height: 120px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+        .newsworthy-img {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          object-fit: cover;
+          z-index: 0;
+        }
+        .newsworthy-overlay {
+          position: absolute;
+          left: 0; right: 0; bottom: 0;
+          height: 70%;
+          background: linear-gradient(0deg, rgba(0,0,0,0.7) 90%, rgba(0,0,0,0.1) 100%);
+          width: 100%;
+          z-index: 1;
+        }
+        .newsworthy-content {
+          position: relative;
+          z-index: 2;
+          color: #fff;
+          padding: 24px 24px 18px 24px;
+          width: 100%;
+        }
+        .newsworthy-label {
+          background: rgba(0,0,0,0.7);
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 700;
+          padding: 4px 14px;
+          border-radius: 3px;
+          display: inline-block;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+        .newsworthy-headline {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+        .newsworthy-desc {
+          font-size: 1rem;
+          color: #e0e0e0;
+        }
+        .newsworthy-bottom-right {
+          grid-row: 2 / 3;
+          grid-column: 2 / 3;
+          min-height: 120px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+        }
+      </style>
+    </head>
+
+    <body>
+      <nav class="navbar navbar-expand-sm bg-light">
+        <!-- <a href="" class="navbar-brand ml-6">
+              <img src="logo.png" class="rounded-pill"  style="width: 40px;" alt="">
+          </a> -->
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <ul class="navbar-nav main-nav justify-content-center">
+            <li class="nav-item dropdown position-relative" id="product">
+              <a href="#" class="nav-link dropdown-toggle">Products</a>
+            </li>
+            <li class="nav-item dropdown position-relative" id="service">
+              <a href="#" class="nav-link dropdown-toggle">Service</a>
+            </li>
+            <li class="nav-item" id="mdas-nav">
+              <a href="#" class="nav-link">MDA's</a>
+            </li>
+            <li class="nav-item" id="about-nav">
+              <a href="#" class="nav-link">About</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto" style="flex-direction: row; gap: 24px;">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-globe"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-person"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row" id="products">
+          <div class="col">
+            <h3
+              style="font-family: Arial, Helvetica, sans-serif; font-size: medium"
+            >
+              LAGIS
+            </h3>
+            <ul style="list-style: none">
+              <li>
+                <p style="margin-bottom: 0%; padding: 0%">LAGIS Overview</p>
+                <span class="text-muted small"
+                  >Lagos State Geographic Information Service</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">
+                  Land Automation and Digitization Center
+                </p>
+                <span class="text-muted small"
+                  >Complete digitization and documentation platform</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">LAGIS Enterprise</p>
+                <span class="text-muted small">System for GIS & mapping</span>
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">LagosNET</p>
+                <span class="text-muted small"
+                  >Electronic system for data management</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Capture Lagos</p>
+                <span class="text-muted small"
+                  >Automatic mapping and Lagos urban growth</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Lagos Watch</p>
+                <span class="text-muted small"
+                  >Secure Change detection in land uses</span
+                >
+              </li>
+              <li
+                style="
+                  border: 1px solid #0083aa;
+                  margin-top: 10px;
+                  padding: 5px;
+                  text-decoration: none;
+                "
+              >
+                <a href="" style="color: #0083aa; text-decoration: none" ;
+                  >All Products</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>CAPABILITIES</h3>
+            <ul style="list-style: none">
+              <li>
+                <p style="margin-bottom: 0%; padding: 0%">Mapping</p>
+                <span class="text-muted small"
+                  >See & Understand spatial data</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Analytics</p>
+                <span class="text-muted small"
+                  >Analyse and interact with historical spatial data</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Data Management</p>
+                <span class="text-muted small"
+                  >Buy, manage, retrieve and enhance your GIS data</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Drone-as-a-Service</p>
+                <span class="text-muted small"
+                  >DaaS for drone imagery, processing and analysis</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">Change Detection</p>
+                <span class="text-muted small"
+                  >Role-based access to enterprise platform</span
+                >
+              </li>
+              <li
+                style="
+                  border: 1px solid #0083aa;
+                  margin-top: 10px;
+                  padding: 5px;
+                  text-decoration: none;
+                "
+              >
+                <a href="" style="color: #0083aa; text-decoration: none" ;
+                  >All Capabilities</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>BUY LAGIS</h3>
+            <ul style="list-style: none">
+              <li>
+                <p style="margin-bottom: 0%">User Types</p>
+                <span class="text-muted small"
+                  >Change detection and environment monitoring</span
+                >
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">LAGIS Store</p>
+                <span class="text-muted small">GIS products from LAGIS</span>
+              </li>
+              <li>
+                <p style="margin-bottom: 0%">How to Buy</p>
+                <span class="text-muted small"
+                  >LAGIS products, MDAs & Partners</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <div
+              class="featured-sol"
+              style="background-color: #f2f2f2; padding: 10px; border-radius: 5px"
+            >
+              <h2 style="font-size: medium">FEATURED SOLUTIONS</h2>
+              <img src="buses.jpg" style="width: 100%" alt="" />
+              <p>
+                ArcGIS for operational intelligence is geospatial software that
+                helps analysts move from strategic to tactical, transforming
+                operations and intelligence data into actionable, real-time
+                insight.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="services">
+          <div class="col-3">
+            <ul style="list-style: none">
+              <h3>Support and Services</h3>
+              <li>Service Overview</li>
+              <li>Mapping Services</li>
+              <li>Platform Integration</li>
+
+              <li>Geospatial Services</li>
+              <li>Training</li>
+              <li>Petition Resolution</li>
+              <li>Technical Support</li>
+              <li>Training</li>
+              <li>Consulting Services</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h4>Self Service</h4>
+            <ul style="list-style: none">
+              <li>Lagis Community</li>
+              <li>Lagis Blog</li>
+              <li>documentation and Information</li>
+              <li>Collaboration</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h4>Contact Us</h4>
+            <ul style="list-style: none">
+              <li>Contact Support</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <img src="landing.jpg" width="100%" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div
+          class="row landing"
+          
+        >
+          <div
+            class="col-6 d-flex flex-column justify-content-center align-items-start"
+          >
+            <h1 class="hero-heading">Where GIS meets Decision making</h1>
+            <div class="hero-desc">
+              Decision makers are integrating GIS and Spatial Analytics to fuel innovation, guide development, make predictions, and accelerate real-time insight.
+            </div>
+            <a href="#" class="hero-btn">Learn More about GIS &rarr;</a>
+          </div>
+          <div class="col-6">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide-to="0"
+                  class="active"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide-to="1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide-to="2"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="landing.jpg"
+                    alt="Los Angeles"
+                    class="d-block w-100"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img src="landing.jpg".jpg" alt="Chicago" class="d-block w-100"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img src="landing.jpg" alt="New York" class="d-block w-100" />
+                </div>
+              </div>
+
+              <!-- Left and right controls/icons -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#demo"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#demo"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section justify-content-center " style="margin-top: 80px;">
+        <h3 class="text-center justify-content-center" style="font-weight: bold; padding: 50px; font: size 15em;;">
+          Lagos State Geographical Information System, is a leading GIS enterprise
+          system wholly owned by Lagos State
+        </h3>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="gis-card-col" style="background-image: url('landing.jpg');">
+              <div class="gis-card-overlay"></div>
+              <div class="gis-card-content">
+                <div class="gis-card-title">About LAGIS</div>
+                <div class="gis-card-desc">Get to know the innovative agency behind Lagos e-GIS drive</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="gis-card-col" style="background-image: url('landing.jpg');">
+              <div class="gis-card-overlay"></div>
+              <div class="gis-card-content">
+                <div class="gis-card-title">About LAGIS</div>
+                <div class="gis-card-desc">Get to know the innovative agency behind Lagos e-GIS drive</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="gis-card-col" style="background-image: url('landing.jpg');">
+              <div class="gis-card-overlay"></div>
+              <div class="gis-card-content">
+                <div class="gis-card-title">About LAGIS</div>
+                <div class="gis-card-desc">Get to know the innovative agency behind Lagos e-GIS drive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="justify-content-center mx-auto">
+          <h3 class="text-center">Who Uses Esri Technology</h3>
+          <p class="text-center w-50 mx-auto">
+            Leading organizations in virtually every field use Esri technology to
+            support daily operations and guide long-term strategies. Explore
+            stories of organizations innovating with ArcGIS.
+          </p>
+        </div>
+        <ul class="org-list">
+          <li class="active"><a href="#">Alaba Rago transational Market</a></li>
+          <li><a href="#">Open Migration Africa</a></li>
+          <li><a href="#">JLL</a></li>
+        </ul>b
+        <div id="featured-stories">
+          <div class="featured-story-section" id="story-1">
+            <img src="landing.jpg" class="featured-story-img" alt="Alaba Rago" />
+            <div class="featured-story-content">
+              <div class="featured-story-label">Infrastructure</div>
+              <div class="featured-story-title">Alaba Rago Transnational Market Redeveloped with LAGIS</div>
+              <div class="featured-story-desc">
+                Alaba Rago Transnationa; Market Limited, uses GIS to identify and analyze land use needs and environmental design for for the redvelopment of Alaba International market in Ojo Alaba, Lagos.. Planners use geospatial tools to consider multiple site suitability factors such as slope, tree cover, and solar radiation, and to calculate the expected energy production of proposed projects.
+              </div>
+              <a href="#" class="featured-story-btn">Read the story &rarr;</a>
+            </div>
+          </div>
+          <div class="featured-story-section" id="story-2" hidden>
+            <img src="landing.jpg" class="featured-story-img" alt="Open Migration Africa" />
+            <div class="featured-story-content">
+              <div class="featured-story-label">Security and Mitigation</div>
+              <div class="featured-story-title">Mapping the regional conflict zones around
+  Africa</div>
+              <div class="featured-story-desc">
+                Conflicts around Africa have caused widespread displacement,
+  migration, poverty and diseases. We have partnered with Open
+  Migration Africa to map conflict zones in Africa, where they are
+  happening and the resultant effects on people and the environment.
+              </div>
+              <a href="#" class="featured-story-btn">Read the story &rarr;</a>
+            </div>
+          </div>
+          <div class="featured-story-section" id="story-3" hidden>
+            <img src="landing.jpg" class="featured-story-img" alt="JLL" />
+            <div class="featured-story-content">
+              <div class="featured-story-label">Real Estate Development</div>
+              <div class="featured-story-title">JLL delivers intelligence to thousands of
+  employees</div>
+              <div class="featured-story-desc">
+              JLL, one of the world's largest real estate firms partners with I-AGIS to
+  equip over 3,000 employees with geospatial data to unlock market
+  intelligence and guide strategic decisions. Through both full-service
+  and self-service systems, analysts, brokers, and clients gain access to
+  key information on consumer trends, demographics, labor availability,
+  transportation routes, and more.
+              </div>
+              <a href="#" class="featured-story-btn">Read the story &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trending Insights Section -->
+        <div class="trending-section">
+          <div class="trending-title">Trending insights on the power of GIS technology</div>
+          <div class="trending-grid">
+            <div class="trending-left">
+              <img src="landing.jpg" class="trending-img" alt="New Towns" />
+              <div class="trending-overlay"></div>
+              <div class="trending-content">
+                <div class="trending-label">New Towns Development</div>
+                <div class="trending-headline">Collaborating with GIS to drive sustainable new towns development</div>
+                <div class="trending-desc">Read article in LAGIS Blog</div>
+              </div>
+            </div>
+            <div class="trending-right">
+              <div class="trending-card">
+                <img src="landing.jpg" class="trending-img" alt="Data & AI" />
+                <div class="trending-overlay"></div>
+                <div class="trending-content">
+                  <div class="trending-label">Data & AI</div>
+                  <div class="trending-headline">Driving efficient operations festive venues</div>
+                  <div class="trending-desc">Read article in LAGIS Man Behind The Door Magazine</div>
+                </div>
+              </div>
+              <div class="trending-card">
+                <img src="landing.jpg" class="trending-img" alt="Youth & Sports" />
+                <div class="trending-overlay"></div>
+                <div class="trending-content">
+                  <div class="trending-label">Youth & Sports Development</div>
+                  <div class="trending-headline">Modernizing Lagos Marathon with e-bikes</div>
+                  <div class="trending-desc">Play episode on our handles</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Newsworthy Section -->
+      <div class="newsworthy-section">
+        <div class="newsworthy-title">New and Newsworthy <br> <span style="font-size: small;" >Product releases, upcoming events, partnerships, and more from Esri</span></div>
+
+        <div class="container-fluid">
+          <div class="row mb-4" style="background-color: #181818;">
+            <div class="col-md-8 mb-4 mb-md-0">
+              <div class="position-relative h-100" style="min-height:260px; border-radius:8px; overflow:hidden;">
+                <img src="landing.jpg" class="w-100 h-100" style="object-fit:cover; position:absolute; top:0; left:0;" alt="LAGCPPAD" />
+                <div class="newsworthy-overlay"></div>
+                <div class="newsworthy-content">
+                  <div class="newsworthy-label">Product & Services Feature</div>
+                  <div class="newsworthy-headline">Get started with LAGCPPAD</div>
+                  <div class="newsworthy-desc">Securely search and retrieve your CTC, Planning Information and Title Documents</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="position-relative h-100" style="min-height:260px; border-radius:8px; overflow:hidden;">
+                <img src="landing.jpg" class="w-100 h-100" style="object-fit:cover; position:absolute; top:0; left:0;" alt="LAGIS & 21st Century" />
+                <div class="newsworthy-overlay"></div>
+                <div class="newsworthy-content">
+                  <div class="newsworthy-label">LAGIS & 21st Century</div>
+                  <div class="newsworthy-headline">LAGIS, OSSG, MIST & Lands Bureau</div>
+                  <div class="newsworthy-desc">LAGIS provides leading spatial analytics capabilities in Lagos MDAs Fabric</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="background-color:#181818;">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="position-relative h-100" style="min-height:180px; border-radius:8px; overflow:hidden;">
+                <img src="landing.jpg" class="w-100 h-100" style="object-fit:cover; position:absolute; top:0; left:0;" alt="Discourse" />
+                <div class="newsworthy-overlay"></div>
+                <div class="newsworthy-content">
+                  <div class="newsworthy-label">Discourse</div>
+                  <div class="newsworthy-headline">Meet the Special Adviser, eGIS & UD</div>
+                  <div class="newsworthy-desc">Dr. Olajide Abiodun Babatunde</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="position-relative h-100" style="min-height:180px; border-radius:8px; overflow:hidden;">
+                <img src="landing.jpg" class="w-100 h-100" style="object-fit:cover; position:absolute; top:0; left:0;" alt="Business Feature" />
+                <div class="newsworthy-overlay"></div>
+                <div class="newsworthy-content">
+                  <div class="newsworthy-label">Business Feature</div>
+                  <div class="newsworthy-headline">LAGIS for Business Growth</div>
+                  <div class="newsworthy-desc">Discover how GIS is transforming businesses in Lagos</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="position-relative h-100" style="min-height:180px; border-radius:8px; overflow:hidden;">
+                <img src="landing.jpg" class="w-100 h-100" style="object-fit:cover; position:absolute; top:0; left:0;" alt="Youth & Sports Development" />
+                <div class="newsworthy-overlay"></div>
+                <div class="newsworthy-content">
+                  <div class="newsworthy-label">Youth & Sports Development</div>
+                  <div class="newsworthy-headline">Modernizing Lagos Marathon with e-bikes</div>
+                  <div class="newsworthy-desc">Play episode on our handles</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Section -->
+      <footer style="background: #fff; border-top: 1px solid #eee; padding-top: 40px;">
+        <div class="container-fluid pb-0 mb-0" style="font-size: 0.93rem;"></div>
+          <div class="row align-items-start">
+            <div class="col-md-2 mb-4">
+          <h5 style="font-weight: bold; font-size: 1rem;">eGIS</h5>
+            <ul class="list-unstyled" style="font-size: 0.92rem;">
+
+            <li><a href="#" style="text-decoration: none; color: inherit;">eGIS Overview</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Mapping Services</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Platform Integration</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Geospatial Services</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Training</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Petition Resolution</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Technical Support</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Training</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Consulting Services</a></li>
+          </ul>
+            </div>
+            <div class="col-md-2 mb-4">
+          <h5 style="font-weight: bold; font-size: 1rem;">COMMUNITY</h5>
+          <ul class="list-unstyled" style="font-size: 0.92rem;">
+            <li><a href="#" style="text-decoration: none; color: inherit;">LAGIS Community</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">LAGIS Blog</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Documentation & Information</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Collaboration</a></li>
+          </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+          <h5 style="font-weight: bold; font-size: 1rem;">ENTERPRISE</h5>
+          <ul class="list-unstyled" style="font-size: 0.92rem;">
+            <li><a href="#" style="text-decoration: none; color: inherit;">About Lagis</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Contact Us</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Careers</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Environment & Sustainability</a></li>
+          </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+          <h5 style="font-weight: bold; font-size: 1rem;">SPECIAL PROGRAMS</h5>
+          <ul class="list-unstyled" style="font-size: 0.92rem;">
+            <li><a href="#" style="text-decoration: none; color: inherit;">Lagos Watch</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Capture Lagos</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">LAGIS Retreat</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Disaster Response</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit;">Contravention & Petition</a></li>
+          </ul>
+            </div>
+            <div class="col-md-2 text-center mb-4">
+          <img src="logo.png" alt="LAGIS Logo" style="max-width: 100px; margin-bottom: 10px;" />
+            </div>
+          </div>
+        </div>
+        <div style="background: #2d2d2d; color: #fff; padding: 18px 0 0 0; margin-top: 0; border-radius: 0 0 12px 12px;">
+          <div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center">
+            <div class="mb-2" style="font-size: 1rem;">
+              © 2025 Lagos State Government Electronic Geographic Information System.
+            </div>
+            <div class="d-flex gap-3 pb-2 justify-content-center">
+              <a href="#" style="color: #fff; font-size: 1.2rem;"><i class="bi bi-youtube"></i></a>
+              <a href="#" style="color: #fff; font-size: 1.2rem;"><i class="bi bi-instagram"></i></a>
+              <a href="#" style="color: #fff; font-size: 1.2rem;"><i class="bi bi-github"></i></a>
+              <a href="#" style="color: #fff; font-size: 1.2rem;"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
+
+    <script>
+      const product = document.getElementById("product");
+      const service = document.getElementById("service");
+      const mdasNav = document.getElementById("mdas-nav");
+      const aboutNav = document.getElementById("about-nav");
+
+      product.addEventListener("click", () => {
+        const products = document.getElementById("products");
+        const services = document.getElementById("services");
+        if (products.style.display === "none") {
+          products.style.display = "flex";
+          services.style.display = "none"; // Hide services when products is shown
+        } else {
+          products.style.display = "none";
+        }
+      });
+
+      service.addEventListener("click", () => {
+        const products = document.getElementById("products");
+        const services = document.getElementById("services");
+        if (services.style.display === "none") {
+          services.style.display = "flex";
+          products.style.display = "none"; // Hide products when services is shown
+        } else {
+          services.style.display = "none";
+        }
+      });
+
+      mdasNav.addEventListener("click", () => {
+        const mdas = document.getElementById("mdas");
+        const about = document.getElementById("about");
+        const products = document.getElementById("products");
+        const services = document.getElementById("services");
+        if (mdas.style.display === "none") {
+          mdas.style.display = "flex";
+          about.style.display = "none";
+          products.style.display = "none";
+          services.style.display = "none";
+        } else {
+          mdas.style.display = "none";
+        }
+      });
+
+      aboutNav.addEventListener("click", () => {
+        const mdas = document.getElementById("mdas");
+        const about = document.getElementById("about");
+        const products = document.getElementById("products");
+        const services = document.getElementById("services");
+        if (about.style.display === "none") {
+          about.style.display = "flex";
+          mdas.style.display = "none";
+          products.style.display = "none";
+          services.style.display = "none";
+        } else {
+          about.style.display = "none";
+        }
+      });
+
+      // Nav switching for featured stories
+      document.querySelectorAll('.org-list li').forEach((li, idx) => {
+        li.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.org-list li').forEach(el => el.classList.remove('active'));
+          this.classList.add('active');
+          // Show the corresponding story
+          document.querySelectorAll('.featured-story-section').forEach((section, sidx) => {
+            section.hidden = (sidx !== idx);
+          });
+        });
+      });
+    </script>
+  </html>
