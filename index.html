@@ -21,12 +21,20 @@
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
             sans-serif;
         }
+
+        h3 {
+          font-size: medium;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+        }
         .text-muted small {
           font-size: 10px;
         }
 
         ul li p {
-          font-size: small;
+          font-size: medium;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
         }
 
         a {
@@ -92,7 +100,8 @@
         #demo .carousel-inner,
         #demo .carousel-item,
         #demo .carousel-item img {
-          height: 400px; /* or any height you want */
+          height: 700px; /* or any height you want */
+          border-radius: 20px;
         }
 
         #demo .carousel-item img {
@@ -464,6 +473,16 @@
           display: flex;
           align-items: flex-end;
         }
+
+        /* Add to your <style> section */
+        .chevron {
+  transition: transform 0.3s;
+  display: inline-block;
+  transform: rotate(180deg); /* Up by default */
+}
+.chevron.open {
+  transform: rotate(0deg);   /* Down when open */
+}
       </style>
     </head>
 
@@ -475,19 +494,27 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
           <ul class="navbar-nav main-nav justify-content-center">
             <li class="nav-item dropdown position-relative" id="product">
-              <a href="#" class="nav-link dropdown-toggle">Products</a>
+              <a href="#" class="nav-link">
+                Products <i class="bi bi-chevron-down"></i>
+              </a>
             </li>
             <li class="nav-item dropdown position-relative" id="service">
-              <a href="#" class="nav-link dropdown-toggle">Service</a>
+              <a href="#" class="nav-link">
+                Service <i class="bi bi-chevron-down"></i>
+              </a>
             </li>
             <li class="nav-item" id="mdas-nav">
-              <a href="#" class="nav-link">MDA's</a>
+              <a href="#" class="nav-link">
+                MDA's <i class="bi bi-chevron-down"></i>
+              </a>
             </li>
             <li class="nav-item" id="about-nav">
-              <a href="#" class="nav-link">About</a>
+              <a href="#" class="nav-link">
+                About <i class="bi bi-chevron-down"></i>
+              </a>
             </li>
           </ul>
-          <ul class="navbar-nav ms-auto" style="flex-direction: row; gap: 24px;">
+          <ul class="navbar-nav ms-auto" style="flex-direction: row; gap: 5px;">
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
             </li>
@@ -554,7 +581,7 @@
                 "
               >
                 <a href="" style="color: #0083aa; text-decoration: none" ;
-                  >All Products</a
+                  >All Products &rarr;</a
                 >
               </li>
             </ul>
@@ -601,7 +628,7 @@
                 "
               >
                 <a href="" style="color: #0083aa; text-decoration: none" ;
-                  >All Capabilities</a
+                  >All Capabilities &rarr;</a
                 >
               </li>
             </ul>
@@ -647,50 +674,378 @@
         <div class="row" id="services">
           <div class="col-3">
             <ul style="list-style: none">
-              <h3>Support and Services</h3>
-              <li>Service Overview</li>
-              <li>Mapping Services</li>
-              <li>Platform Integration</li>
-
-              <li>Geospatial Services</li>
-              <li>Training</li>
-              <li>Petition Resolution</li>
-              <li>Technical Support</li>
-              <li>Training</li>
-              <li>Consulting Services</li>
+              <h3>SUPPORT and SERVICES</h3>
+                <li>
+                  <p style="margin-bottom: 0%; padding: 0%">Service Overview</p>
+                  <span class="text-muted small">Overview of all support and services</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Mapping Services</p>
+                  <span class="text-muted small">Professional mapping and cartography</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Platform Integration</p>
+                  <span class="text-muted small">Integrate GIS with your business systems</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Geospatial Services</p>
+                  <span class="text-muted small">Spatial analysis and data solutions</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Training</p>
+                  <span class="text-muted small">Capacity building and user training</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Petition Resolution</p>
+                  <span class="text-muted small">Resolve land and GIS-related petitions</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Technical Support</p>
+                  <span class="text-muted small">Get help with technical issues</span>
+                </li>
+                <li>
+                  <p style="margin-bottom: 0%">Consulting Services</p>
+                  <span class="text-muted small">Expert advice for your GIS projects</span>
+                </li>
             </ul>
           </div>
-          <div class="col-3">
-            <h4>Self Service</h4>
+            <div class="col">
+            <h3>SELF SERVICE</h3>
             <ul style="list-style: none">
-              <li>Lagis Community</li>
-              <li>Lagis Blog</li>
-              <li>documentation and Information</li>
-              <li>Collaboration</li>
+              <li>
+              <p style="margin-bottom: 0%">LAGIS Community</p>
+              <span class="text-muted small">Connect with other GIS users</span>
+              </li>
+              <li>
+              <p style="margin-bottom: 0%">LAGIS Blog</p>
+              <span class="text-muted small">Insights, news, and updates</span>
+              </li>
+              <li>
+              <p style="margin-bottom: 0%">Documentation & Information</p>
+              <span class="text-muted small">Guides and technical resources</span>
+              </li>
+              <li>
+              <p style="margin-bottom: 0%">Collaboration</p>
+              <span class="text-muted small">Work together on GIS projects</span>
+              </li>
+             
             </ul>
-          </div>
+            </div>
           <div class="col-3">
-            <h4>Contact Us</h4>
+            <h3>Contact Us</h3>
             <ul style="list-style: none">
               <li>Contact Support</li>
             </ul>
           </div>
-          <div class="col-3">
-            <img src="landing.jpg" width="100%" alt="" />
-          </div>
+            <div class="col-3">
+            <div style="background: #f5f5f5; border-radius: 8px; padding: 16px;">
+              <h4 style="font-weight: 600;  font-size: large;">FEATURED TRAINING</h4>
+              <img src="landing.jpg" alt="Featured Service" style="width: 100%; border-radius: 6px; margin-bottom: 10px;">
+              <div style="font-weight:500;">New Certification | Lagis Association 2025</div>
+              <div style="font-size: 0.95em;">
+              Validate your expertise in applying the concepts
+and workflows GIS with this new technical
+certification.
+              </div>
+            </div>
+            </div>
         </div>
       </div>
+      <div class="row" id="mdas" style="display: none;">
+  <div class="col">
+    <h3 style="font-weight: bold;">MDAs</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">Lands Bureau</p>
+        <span class="text-muted small">Land administration and management</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Physical Planning</p>
+        <span class="text-muted small">Urban and regional planning authority</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Science & Technology</p>
+        <span class="text-muted small">Technology and innovation for Lagos</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Surveyor General</p>
+        <span class="text-muted small">Geospatial data and surveying</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">LASBCA</p>
+        <span class="text-muted small">Building control and approvals</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Works & Infrastructure</p>
+        <span class="text-muted small">Public works and infrastructure projects</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Health & Environment</p>
+        <span class="text-muted small">Environmental and health services</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Transport & Water Resources</p>
+        <span class="text-muted small">Transportation and water management</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Energy and Mineral Resources</p>
+        <span class="text-muted small">Energy and mineral resource management</span>
+      </li>
+      <li
+        style="
+          border: 1px solid #0083aa;
+          margin-top: 10px;
+          padding: 5px;
+          text-decoration: none;
+        "
+      >
+        <a href="" style="color: #0083aa; text-decoration: none"
+          >All MDAs &rarr;</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">LAGIS Units</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">Finance</p>
+        <span class="text-muted small">Financial management and budgeting</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Special Adviser eGIS&UD</p>
+        <span class="text-muted small">Executive oversight for GIS and Urban Development</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">LASPIC</p>
+        <span class="text-muted small">Lagos State Property Identification Code</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Green Building</p>
+        <span class="text-muted small">Sustainable building and environmental standards</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">e-Library</p>
+        <span class="text-muted small">Digital resources and GIS documentation</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">PPAD</p>
+        <span class="text-muted small">Physical Planning and Development</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Digitization Department</p>
+        <span class="text-muted small">Document scanning and digital archiving</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">e-Monitoring</p>
+        <span class="text-muted small">Electronic monitoring and reporting</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Drone Team</p>
+        <span class="text-muted small">Aerial imagery and drone operations</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Land Archive</p>
+        <span class="text-muted small">Land records and archival management</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">INDUSTRIES</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">Architecture, Engineering & Construction</p>
+        <span class="text-muted small">Design, build, and manage infrastructure projects</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Urban & Sustainable Development</p>
+        <span class="text-muted small">Smart city planning and sustainable growth</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Energy, Utilities & Infrastructure</p>
+        <span class="text-muted small">Power, water, and essential services management</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Facilities Management</p>
+        <span class="text-muted small">Optimize and maintain public and private assets</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">State & Local Government</p>
+        <span class="text-muted small">Government operations and citizen services</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Health, Human & Environment Services</p>
+        <span class="text-muted small">Public health, social, and environmental programs</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Science & Resource Management</p>
+        <span class="text-muted small">Research, conservation, and resource planning</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Business & Finance</p>
+        <span class="text-muted small">Commercial, retail, and financial services</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Security & Public Safety</p>
+        <span class="text-muted small">Emergency response and risk mitigation</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Transportation & Water Resources</p>
+        <span class="text-muted small">Mobility, logistics, and water management</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">PARTNERS</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">IconGEO</p>
+        <span class="text-muted small">Geospatial solutions and consulting</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">GISTransport</p>
+        <span class="text-muted small">Transport and logistics mapping</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">AQTech</p>
+        <span class="text-muted small">Technology and data analytics</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">21st Century Technologies</p>
+        <span class="text-muted small">ICT infrastructure and services</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">GRID3</p>
+        <span class="text-muted small">Geospatial data for development</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">ENLNOVA</p>
+        <span class="text-muted small">Innovation in GIS and mapping</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Broad View</p>
+        <span class="text-muted small">Spatial intelligence and insights</span>
+      </li>
+      <li
+        style="
+          border: 1px solid #0083aa;
+          margin-top: 10px;
+          padding: 5px;
+          text-decoration: none;
+        "
+      >
+        <a href="" style="color: #0083aa; text-decoration: none"
+          >All Partners &rarr;</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <div style="background: #f5f5f5; border-radius: 8px; padding: 16px;">
+      <h4 style="font-weight:600; font-size: large;">FEATURED EVENT</h4>
+      <img src="buses.jpg" alt="LAGIS Bill Retreat" style="width: 100%; border-radius: 6px; margin-bottom: 10px;">
+      <div style="font-weight: bold;">LAGIS Bill Retreat</div>
+      <div style="font-size: 0.95em;">
+        Join your peers and industry experts at the LAGIS Bill Retreat in Lagos, Nigeria, on April 9-11, 2025 to discover how LAGIS is positioning to optimize operations, boost efficiency, and streamline collaboration across all agencies.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" id="about" style="display: none;">
+  <div class="col">
+    <h3 style="font-weight: bold;">ABOUT LAGIS</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">About LAGIS</p>
+        <span class="text-muted small">Overview of Lagos State Geographic Information Service</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">LAGIS Programs & Initiatives</p>
+        <span class="text-muted small">Key projects and strategic initiatives</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Events</p>
+        <span class="text-muted small">Upcoming and past LAGIS events</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Partners</p>
+        <span class="text-muted small">Collaboration with industry and government</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Careers</p>
+        <span class="text-muted small">Join the LAGIS team</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Media & Analyst Relations</p>
+        <span class="text-muted small">Press releases and media resources</span>
+      </li>
+      <li>
+        <a href="#" style="border: 1px solid #00b6e6; color: #00b6e6; padding: 6px 14px; border-radius: 3px; display: inline-block; margin-top: 10px; text-decoration: none;">
+          Contact Us &rarr;
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">ABOUT GIS</h3>
+    <ul style="list-style: none;">
+      <li>
+        <p style="margin-bottom: 0%">What is GIS?</p>
+        <span class="text-muted small">Geographic Information System explained</span>
+      </li>
+      <li>
+        <p style="margin-bottom: 0%">Geographic Approach</p>
+        <span class="text-muted small">How GIS solves real-world problems</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">STORIES & COMMITMENT</h3>
+    <ul style="list-style: none;">
+      <li>
+        <span>eGIS Magazine</span><br>
+        <span class="text-muted small">Executive level news & insights</span>
+      </li>
+      <li>
+        <span>Artificial & Location Intelligent</span><br>
+        <span class="text-muted small">Our commitment to digital transformation</span>
+      </li>
+      <li>
+        <span>LAGIS Blog</span><br>
+        <span class="text-muted small">Real time Lagos State transformation</span>
+      </li>
+      <li>
+        <span>Handles, Channels & Podcasts</span><br>
+        <span class="text-muted small">Political, business and tech leaders</span>
+      </li>
+      <li>
+        <span>LAGIS News</span><br>
+        <span class="text-muted small">Geospatial news, views and Updates</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <div style="background: #f5f5f5; border-radius: 8px; padding: 16px;">
+      <h4 style="font-weight: 600; font-size: large;">FEATURED STORY</h4>
+      <img src="buses.jpg" alt="Featured Story" style="width: 100%; border-radius: 6px; margin-bottom: 10px;">
+      <div style="font-weight: bold; font-size: 1.2em; margin-bottom: 6px;">The Dosu Babatunde Foundation Internship</div>
+      <div style="font-size: 1em;">
+        Students at University of Lagos and Ladoke Akintola University of Technology gain essential knowledge and skills in GIS software to address pollution and climate change.
+      </div>
+    </div>
+  </div>
+</div>
 
       <div class="container-fluid">
         <div
           class="row landing"
-          
+          style="background-image: url(lagos.jpg); background-size:cover;"
         >
           <div
             class="col-6 d-flex flex-column justify-content-center align-items-start"
           >
-            <h1 class="hero-heading">Where GIS meets Decision making</h1>
-            <div class="hero-desc">
+            <h1 class="hero-heading" style="color:#ffffff;">Where GIS meets Decision making</h1>
+            <div class="hero-desc" style="color: white; background-color: #121241; border-radius: 10px; padding: 10px;">
               Decision makers are integrating GIS and Spatial Analytics to fuel innovation, guide development, make predictions, and accelerate real-time insight.
             </div>
             <a href="#" class="hero-btn">Learn More about GIS &rarr;</a>
@@ -724,7 +1079,7 @@
                   />
                 </div>
                 <div class="carousel-item">
-                  <img src="landing.jpg".jpg" alt="Chicago" class="d-block w-100"
+                  <img src="landing.jpg" alt="Chicago" class="d-block w-100"
                   />
                 </div>
                 <div class="carousel-item">
@@ -733,20 +1088,7 @@
               </div>
 
               <!-- Left and right controls/icons -->
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide="prev"
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide="next"
-              >
+             
                 <span class="carousel-control-next-icon"></span>
               </button>
             </div>
@@ -1023,34 +1365,45 @@
       const mdasNav = document.getElementById("mdas-nav");
       const aboutNav = document.getElementById("about-nav");
 
-      product.addEventListener("click", () => {
+      product.addEventListener("click", (e) => {
+        e.preventDefault();
         const products = document.getElementById("products");
         const services = document.getElementById("services");
-        if (products.style.display === "none") {
+        const mdas = document.getElementById("mdas");
+        const about = document.getElementById("about");
+        if (getComputedStyle(products).display === "none") {
           products.style.display = "flex";
-          services.style.display = "none"; // Hide services when products is shown
+          services.style.display = "none";
+          mdas.style.display = "none";
+          about.style.display = "none";
         } else {
           products.style.display = "none";
         }
       });
 
-      service.addEventListener("click", () => {
+      service.addEventListener("click", (e) => {
+        e.preventDefault();
         const products = document.getElementById("products");
         const services = document.getElementById("services");
-        if (services.style.display === "none") {
+        const mdas = document.getElementById("mdas");
+        const about = document.getElementById("about");
+        if (getComputedStyle(services).display === "none") {
           services.style.display = "flex";
-          products.style.display = "none"; // Hide products when services is shown
+          products.style.display = "none";
+          mdas.style.display = "none";
+          about.style.display = "none";
         } else {
           services.style.display = "none";
         }
       });
 
-      mdasNav.addEventListener("click", () => {
+      mdasNav.addEventListener("click", (e) => {
+        e.preventDefault();
         const mdas = document.getElementById("mdas");
         const about = document.getElementById("about");
         const products = document.getElementById("products");
         const services = document.getElementById("services");
-        if (mdas.style.display === "none") {
+        if (getComputedStyle(mdas).display === "none") {
           mdas.style.display = "flex";
           about.style.display = "none";
           products.style.display = "none";
@@ -1060,12 +1413,13 @@
         }
       });
 
-      aboutNav.addEventListener("click", () => {
+      aboutNav.addEventListener("click", (e) => {
+        e.preventDefault();
         const mdas = document.getElementById("mdas");
         const about = document.getElementById("about");
         const products = document.getElementById("products");
         const services = document.getElementById("services");
-        if (about.style.display === "none") {
+        if (getComputedStyle(about).display === "none") {
           about.style.display = "flex";
           mdas.style.display = "none";
           products.style.display = "none";
